@@ -1,0 +1,29 @@
+,Event Category,Event Subtype,28thThu,29thFri,30thSat,31stSun,1stMon,2ndTue,3rdWed,4thThu,5thFri,6thSat,7thSun,8thMon,Events
+0,Ceremonies,Ceremonies,OC,,,,,,,,,,,CC,—
+1,Aquatics,Diving,,,,,,,,2,3,3,2,2,12
+2,Aquatics,Swimming,,7,10,8,8,10,9,,,,,,52
+3,Athletics,Athletics,,,4,,,6,8,6,5,14,15,,58
+4,Badminton,Badminton,,●,●,●,●,1,●,●,●,●,●,5,6
+5,3x3 basketball,3x3 basketball,,●,●,●,●,4,,,,,,,4
+6,Beach volleyball,Beach volleyball,,,●,●,●,●,●,●,●,●,2,,2
+7,Boxing,Boxing,,●,●,●,●,●,●,●,,●,16,,16
+8,Cricket,Cricket,,●,●,●,,●,●,●,,●,1,,1
+9,Cycling,,,,,,,,,,,,,,
+10,Cycling,Mountain biking,,,,,,,2,,,,,,26
+11,Cycling,Road cycling,,,,,,,,2,,,2,,26
+12,Cycling,Track cycling,,6,4,6,4,,,,,,,,26
+13,Gymnastics,Artistic,,1,1,2,5,5,,,,,,,20
+14,Gymnastics,Rhythmic,,,,,,,,1,1,4,,,20
+15,Hockey,Hockey,,●,●,●,●,●,●,●,●,●,1,1,2
+16,Judo,Judo,,,,,5,4,5,,,,,,14
+17,Lawn bowls,Lawn bowls,,●,●,●,2,3,1,●,2,3,,,11
+18,Netball,Netball,,●,●,●,●,●,●,●,●,●,1,,1
+19,Para powerlifting,Para powerlifting,,,,,,,,4,,,,,4
+20,Rugby sevens,Rugby sevens,,●,●,2,,,,,,,,,2
+21,Squash,Squash,,●,●,●,●,●,2,●,●,●,1,2,5
+22,Table tennis,Table tennis,,●,●,●,1,1,●,●,●,3,4,2,11
+23,Triathlon,Triathlon,,2,,3,,,,,,,,,5
+24,Weightlifting,Weightlifting,,,4,3,3,3,3,,,,,,16
+25,Wrestling,Wrestling,,,,,,,,,6,6,,,12
+26,Daily medal events,Daily medal events,,16,23,24,28,37,30,15,17,33,45,12,280
+27,Cumulative total,Cumulative total,,16,39,63,91,128,158,173,190,223,268,280,280
