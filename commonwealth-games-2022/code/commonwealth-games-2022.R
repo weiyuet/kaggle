@@ -23,3 +23,19 @@ athlete_count %>%
 
 # Save png
 ggsave("commonwealth-games-2022/figures/countries-most-athletes.png", width = 7, height = 5)
+
+# Join athlete count and medal standings data sets
+# Change column name in medal standings Country Name to Country
+colnames(medal_standings)[colnames(medal_standings) == "Country Name"] <- "Country"
+
+medal_standings %>% left_join(athlete_count) %>% 
+  drop_na() %>%
+  ggplot(aes(x = `Total Gold`, y = Athletes, colour = Country)) + 
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +
+  theme_classic() +
+  theme(legend.position = "none")
+
+# Save png
+ggsave("commonwealth-games-2022/figures/total-gold-country.png", width = 6, height = 6)
