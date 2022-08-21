@@ -1,7 +1,6 @@
 # Load libraries
 library(tidyverse)
 library(scales)
-library(gridExtra)
 library(patchwork)
 
 # Load data
@@ -35,10 +34,10 @@ p3 = police_stops %>%
   theme_classic() +
   labs(x = "Vehicle Search", y = "")
 
-# p4 = grid.arrange(arrangeGrob(p2, p3, ncol = 2, nrow = 1), 
-#              p1, nrow = 2,
-#              heights = c(1.6, 2.4))
+# Combine plots and annotate
+(p2 | p3) / 
+  p1 + plot_annotation(title = "Subcategories of Police Stops and Violence in Minneapolis",
+                       caption = "Source: Kaggle")
 
-p2 + p3 + p1 + plot_layout(ncol = 1)
-
-ggsave("minneapolis-police-stops-and-violence/figures/police-force-subcategories.png", width = 6, height = 9)
+# Save png
+ggsave("minneapolis-police-stops-and-violence/figures/police-force-subcategories.png", width = 8, height = 9)
