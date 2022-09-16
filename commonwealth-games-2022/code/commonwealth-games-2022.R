@@ -8,27 +8,32 @@ athlete_count <- read_csv("commonwealth-games-2022/data/Countrywise Athlete Coun
 medal_standings <- read_csv("commonwealth-games-2022/data/Medal Standings.csv")
 
 # Plot countries with the most and least number of participating athletes
-athlete_count %>% 
+athlete_count %>%
   slice_max(Athletes, n = 10) %>%
-  mutate(Country = fct_reorder(Country, Athletes)) %>% 
+  mutate(Country = fct_reorder(Country, Athletes)) %>%
   ggplot(aes(x = Country, y = Athletes)) +
   geom_col(fill = "gray35", colour = "gray10") +
   geom_label(aes(x = Country, y = Athletes, label = round(Athletes, 0)),
-             hjust = 1,
-             vjust = 0.5,
-             colour = "white",
-             fill = NA,
-             label.size = NA,
-             size = 4) +
+    hjust = 1,
+    vjust = 0.5,
+    colour = "white",
+    fill = NA,
+    label.size = NA,
+    size = 3.5
+  ) +
   coord_flip() +
-  scale_y_continuous(limits = c(0, 450),
-                     breaks = seq(0, 450, 50),
-                     expand = c(0, 0)) +
+  scale_y_continuous(
+    limits = c(0, 450),
+    breaks = seq(0, 450, 50),
+    expand = c(0, 0)
+  ) +
   theme_classic() +
-  labs(x = "", y = "",
-       title = "Commonwealth Games 2022",
-       subtitle = "Countries with the Most Participating Athletes (Top 10)",
-       caption = "Source: www.birmingham2022.com")
+  labs(
+    x = "", y = "",
+    title = "Commonwealth Games 2022",
+    subtitle = "Countries with the Most Participating Athletes (Top 10)",
+    caption = "Source: www.birmingham2022.com"
+  )
 
 # Save png
 ggsave("commonwealth-games-2022/figures/countries-most-athletes.png", width = 7, height = 5)
@@ -37,9 +42,10 @@ ggsave("commonwealth-games-2022/figures/countries-most-athletes.png", width = 7,
 # Change column name in medal standings Country Name to Country
 colnames(medal_standings)[colnames(medal_standings) == "Country Name"] <- "Country"
 
-medal_standings %>% left_join(athlete_count) %>% 
+medal_standings %>%
+  left_join(athlete_count) %>%
   drop_na() %>%
-  ggplot(aes(x = `Total Gold`, y = Athletes, colour = Country)) + 
+  ggplot(aes(x = `Total Gold`, y = Athletes, colour = Country)) +
   geom_point() +
   scale_x_log10() +
   scale_y_log10() +
