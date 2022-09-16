@@ -9,16 +9,25 @@ medal_standings <- read_csv("commonwealth-games-2022/data/Medal Standings.csv")
 
 # Plot countries with the most and least number of participating athletes
 athlete_count %>% 
-  slice_max(Athletes, n = 10) %>% 
+  slice_max(Athletes, n = 10) %>%
+  mutate(Country = fct_reorder(Country, Athletes)) %>% 
   ggplot(aes(x = Country, y = Athletes)) +
-  geom_col(fill = "dodgerblue3") +
+  geom_col(fill = "gray35", colour = "gray10") +
+  geom_label(aes(x = Country, y = Athletes, label = round(Athletes, 0)),
+             hjust = 1,
+             vjust = 0.5,
+             colour = "white",
+             fill = NA,
+             label.size = NA,
+             size = 4) +
+  coord_flip() +
   scale_y_continuous(limits = c(0, 450),
                      breaks = seq(0, 450, 50),
                      expand = c(0, 0)) +
   theme_classic() +
   labs(x = "", y = "",
-       title = "Countries with the Most Participating Athletes (Top 10)",
-       subtitle = "Commonwealth Games 2022",
+       title = "Commonwealth Games 2022",
+       subtitle = "Countries with the Most Participating Athletes (Top 10)",
        caption = "Source: www.birmingham2022.com")
 
 # Save png
