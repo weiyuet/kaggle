@@ -45,12 +45,17 @@ colnames(medal_standings)[colnames(medal_standings) == "Country Name"] <- "Count
 medal_standings %>%
   left_join(athlete_count) %>%
   drop_na() %>%
-  ggplot(aes(x = `Total Gold`, y = Athletes, colour = Country)) +
-  geom_point() +
-  scale_x_log10() +
-  scale_y_log10() +
+  mutate(Country = fct_reorder(Country, Total)) %>% 
+  ggplot(aes(x = Total, y = Country)) +
+  geom_col(fill = "gray35", colour = "gray10") +
+  scale_x_continuous(breaks = seq(0, 160, 20),
+                     limits = c(0, 160),
+                     expand = c(0, 0)) +
   theme_classic() +
-  theme(legend.position = "none")
+  labs(x = "", y = "",
+       title = "Commonwealth Games 2022",
+       subtitle = "Countries with the Most Total Medals",
+       caption = "Source: www.birmingham2022.com")
 
 # Save png
 ggsave("commonwealth-games-2022/figures/total-gold-country.png", width = 6, height = 6)
